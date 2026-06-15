@@ -11,7 +11,7 @@ const projects = [
       "Reduced prediction error by 23% using Gradient Boosting",
       "Built an interactive dashboard for best-, mid-, and worst-case forecasts"
     ],
-
+    demoUrl: "",
     codeUrl: "https://github.com/tmk-07/swim-performance-forecasting"
   },
   {
@@ -26,7 +26,7 @@ const projects = [
       "Trained a softmax policy-gradient bot using move-based features",
       "Reached about 30% win rate against near-optimal heuristic agents"
     ],
-
+    demoUrl: "",
     codeUrl: "https://github.com/tmk-07/trouble_analysis_simulation"
   },
   {
@@ -83,20 +83,20 @@ function makeProjectCard(project) {
   const techItems = project.tech.map((item) => `<li>${item}</li>`).join("");
   const highlightItems = project.highlights.map((item) => `<li>${item}</li>`).join("");
 
+  const demoLink = project.demoUrl
+    ? `<a href="${project.demoUrl}" target="_blank" rel="noreferrer" aria-label="View ${project.title} demo">Live Demo</a>`
+    : "";
+
+  const codeLink = project.codeUrl
+    ? `<a href="${project.codeUrl}" target="_blank" rel="noreferrer" aria-label="View ${project.title} code">GitHub</a>`
+    : "";
+
   return `
-    <article class="project-card" data-category="${project.category.join(" ")}">
-      <div class="project-top">
-        <span class="project-tag">${project.tag}</span>
-        <h3>${project.title}</h3>
-        <p>${project.description}</p>
-      </div>
-      <ul class="tech-list">${techItems}</ul>
-      <ul class="highlight-list">${highlightItems}</ul>
-      <div class="project-links">
-        <a href="${project.demoUrl}" aria-label="View ${project.title} demo">Live Demo</a>
-        <a href="${project.codeUrl}" aria-label="View ${project.title} code">GitHub</a>
-      </div>
-    </article>
+    ...
+    <div class="project-links">
+      <a href="${project.demoUrl}" target="_blank" rel="noreferrer" aria-label="View ${project.title} demo">Live Demo</a>
+      <a href="${project.codeUrl}" target="_blank" rel="noreferrer" aria-label="View ${project.title} code">GitHub</a>
+    </div>
   `;
 }
 
