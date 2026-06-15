@@ -11,8 +11,8 @@ const projects = [
       "Reduced prediction error by 23% using Gradient Boosting",
       "Built an interactive dashboard for best-, mid-, and worst-case forecasts"
     ],
-    demoUrl: "#",
-    codeUrl: "#"
+
+    codeUrl: "https://github.com/tmk-07/swim-performance-forecasting"
   },
   {
     title: "Trouble Strategy Simulator",
@@ -26,8 +26,8 @@ const projects = [
       "Trained a softmax policy-gradient bot using move-based features",
       "Reached about 30% win rate against near-optimal heuristic agents"
     ],
-    demoUrl: "#",
-    codeUrl: "#"
+
+    codeUrl: "https://github.com/tmk-07/trouble_analysis_simulation"
   },
   {
     title: "NBA Lead Tracker Visualization",
@@ -41,8 +41,8 @@ const projects = [
       "Generated point-differential timelines from scoring events",
       "Designed playback controls, speed adjustment, and timeline navigation"
     ],
-    demoUrl: "#",
-    codeUrl: "#"
+    demoUrl: "https://nbaleadtracker.vercel.app/",
+    codeUrl: "https://github.com/tmk-07/nba-lead-tracker"
   },
   {
     title: "Basketball Shot Tracker",
@@ -56,8 +56,8 @@ const projects = [
       "Used localStorage to persist shot totals without a backend",
       "Deployed as a fast static web app through Cloudflare Pages"
     ],
-    demoUrl: "#",
-    codeUrl: "#"
+    demoUrl: "https://shot-tracker.timmykim07.workers.dev/",
+    codeUrl: "https://github.com/tmk-07/shot-tracker"
   },
   {
     title: "NFL Running Play Impact Research",
@@ -71,8 +71,8 @@ const projects = [
       "Developed CNN-based approach for yardage outcome prediction",
       "Used Grad-CAM heat maps to interpret predictive field areas"
     ],
-    demoUrl: "#",
-    codeUrl: "#"
+    demoUrl: "https://drive.google.com/file/d/1CqoLd63kK2pWC5QLk6DLB91aiaDT1iKj/view?usp=sharing",
+    codeUrl: "https://github.com/chadhimes/AI.DataLab"
   }
 ];
 
