@@ -92,11 +92,26 @@ function makeProjectCard(project) {
     : "";
 
   return `
-    ...
-    <div class="project-links">
-      <a href="${project.demoUrl}" target="_blank" rel="noreferrer" aria-label="View ${project.title} demo">Live Demo</a>
-      <a href="${project.codeUrl}" target="_blank" rel="noreferrer" aria-label="View ${project.title} code">GitHub</a>
-    </div>
+    <article class="project-card" data-category="${project.category.join(" ")}">
+      <div class="project-top">
+        <span class="project-tag">${project.tag}</span>
+        <h3>${project.title}</h3>
+        <p>${project.description}</p>
+      </div>
+
+      <ul class="tech-list">
+        ${techItems}
+      </ul>
+
+      <ul class="highlight-list">
+        ${highlightItems}
+      </ul>
+
+      <div class="project-links">
+        ${demoLink}
+        ${codeLink}
+      </div>
+    </article>
   `;
 }
 
