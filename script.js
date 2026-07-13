@@ -1,135 +1,79 @@
-const projects = [
+const researchProjects = [
   {
     title: "Swim Performance Forecasting",
-    tag: "Machine Learning",
-    category: ["ml", "analytics"],
+    type: "Machine Learning",
     description:
-      "End-to-end data science pipeline that scrapes Swimcloud race records, anonymizes swimmer identifiers, and predicts future swim performance from historical results.",
-    tech: ["Python", "BeautifulSoup", "Selenium", "scikit-learn", "Streamlit"],
-    highlights: [
-      "Processed 100,000+ Swimcloud race records",
-      "Reduced prediction error by 23% using Gradient Boosting",
-      "Built an interactive dashboard for best-, mid-, and worst-case forecasts"
+      "An end-to-end pipeline that collects historical Swimcloud race data and forecasts future swimmer performance from progression patterns.",
+    details: [
+      "100,000+ race records processed",
+      "Gradient Boosting reduced prediction error by 23%",
+      "Interactive best-, mid-, and worst-case forecasts"
     ],
-    demoUrl: "",
+    tech: ["Python", "Selenium", "scikit-learn", "Streamlit"],
     codeUrl: "https://github.com/tmk-07/swim-performance-forecasting"
   },
   {
     title: "Trouble Strategy Simulator",
-    tag: "Simulation and RL",
-    category: ["ml", "analytics"],
+    type: "Simulation · Reinforcement Learning",
     description:
-      "Python simulation engine for the board game Trouble with heuristic agents, reinforcement-learning agents, and Monte Carlo strategy evaluation.",
-    tech: ["Python", "Reinforcement Learning", "Monte Carlo", "Simulation"],
-    highlights: [
-      "Built a custom simulation engine for four-player game experiments",
-      "Trained a softmax policy-gradient bot using move-based features",
-      "Reached about 30% win rate against near-optimal heuristic agents"
+      "A custom four-player simulation engine used to compare heuristics, Monte Carlo strategies, and reinforcement-learning agents for the board game Trouble.",
+    details: [
+      "Custom rule and game-state engine",
+      "Softmax policy-gradient agent",
+      "Approximately 30% win rate against strong heuristic agents"
     ],
-    demoUrl: "",
+    tech: ["Python", "Reinforcement Learning", "Monte Carlo"],
     codeUrl: "https://github.com/tmk-07/trouble_analysis_simulation"
   },
   {
-    title: "NBA Lead Tracker Visualization",
-    tag: "Sports Analytics",
-    category: ["analytics", "web"],
-    description:
-      "Full-stack basketball visualization app that transforms NBA play-by-play data into animated score differential timelines.",
-    tech: ["React", "Vite", "FastAPI", "Python", "pandas", "nba_api"],
-    highlights: [
-      "Fetched and cleaned NBA play-by-play data with a FastAPI backend",
-      "Generated point-differential timelines from scoring events",
-      "Designed playback controls, speed adjustment, and timeline navigation"
-    ],
-    demoUrl: "https://nbaleadtracker.vercel.app/",
-    codeUrl: "https://github.com/tmk-07/nba-lead-tracker"
-  },
-  {
-    title: "Basketball Shot Tracker",
-    tag: "Frontend Tool",
-    category: ["web"],
-    description:
-      "Mobile-friendly basketball shooting tracker that records makes and misses, calculates live field goal percentage, and saves shot history on-device.",
-    tech: ["HTML", "CSS", "JavaScript", "localStorage", "Cloudflare Pages"],
-    highlights: [
-      "Built a touch-friendly single-page app for workouts",
-      "Used localStorage to persist shot totals without a backend",
-      "Deployed as a fast static web app through Cloudflare Pages"
-    ],
-    demoUrl: "https://shot-tracker.timmykim07.workers.dev/",
-    codeUrl: "https://github.com/tmk-07/shot-tracker"
-  },
-  {
     title: "NFL Running Play Impact Research",
-    tag: "Research",
-    category: ["ml", "analytics"],
+    type: "Sports Analytics Research",
     description:
-      "Sports analytics research project using NFL positional data, convolutional neural networks, and Grad-CAM heat maps to study high-impact running plays.",
-    tech: ["Python", "CNN", "Grad-CAM", "Matplotlib", "Excel"],
-    highlights: [
-      "Visualized 2,500,000+ NFL positional data points",
-      "Developed CNN-based approach for yardage outcome prediction",
-      "Used Grad-CAM heat maps to interpret predictive field areas"
+      "Research using NFL positional tracking data, convolutional neural networks, and Grad-CAM to identify field regions that influence rushing outcomes.",
+    details: [
+      "2.5M+ positional data points visualized",
+      "CNN-based yardage prediction approach",
+      "Grad-CAM heat maps for model interpretation"
     ],
+    tech: ["Python", "CNN", "Grad-CAM", "Matplotlib"],
     demoUrl: "https://drive.google.com/file/d/1CqoLd63kK2pWC5QLk6DLB91aiaDT1iKj/view?usp=sharing",
     codeUrl: "https://github.com/chadhimes/AI.DataLab"
   }
 ];
 
-const projectGrid = document.querySelector("#projectGrid");
-const filterButtons = document.querySelectorAll(".filter");
+const researchGrid = document.querySelector("#researchGrid");
 
-function makeProjectCard(project) {
-  const techItems = project.tech.map((item) => `<li>${item}</li>`).join("");
-  const highlightItems = project.highlights.map((item) => `<li>${item}</li>`).join("");
+function createProjectCard(project, index) {
+  const details = project.details.map((item) => `<li>${item}</li>`).join("");
+  const tech = project.tech.map((item) => `<li>${item}</li>`).join("");
 
-  const demoLink = project.demoUrl
-    ? `<a href="${project.demoUrl}" target="_blank" rel="noreferrer" aria-label="View ${project.title} demo">Live Demo</a>`
-    : "";
-
-  const codeLink = project.codeUrl
-    ? `<a href="${project.codeUrl}" target="_blank" rel="noreferrer" aria-label="View ${project.title} code">GitHub</a>`
-    : "";
+  const links = [
+    project.demoUrl
+      ? `<a href="${project.demoUrl}" target="_blank" rel="noreferrer">View research <span aria-hidden="true">↗</span></a>`
+      : "",
+    project.codeUrl
+      ? `<a href="${project.codeUrl}" target="_blank" rel="noreferrer">GitHub <span aria-hidden="true">↗</span></a>`
+      : ""
+  ].join("");
 
   return `
-    <article class="project-card" data-category="${project.category.join(" ")}">
-      <div class="project-top">
-        <span class="project-tag">${project.tag}</span>
+    <article class="project-card">
+      <div class="project-index">${String(index + 1).padStart(2, "0")}</div>
+
+      <div class="project-main">
+        <p class="project-type">${project.type}</p>
         <h3>${project.title}</h3>
-        <p>${project.description}</p>
+        <p class="project-description">${project.description}</p>
+        <ul class="project-details">${details}</ul>
       </div>
 
-      <ul class="tech-list">
-        ${techItems}
-      </ul>
-
-      <ul class="highlight-list">
-        ${highlightItems}
-      </ul>
-
-      <div class="project-links">
-        ${demoLink}
-        ${codeLink}
+      <div class="project-meta">
+        <ul class="tech-list">${tech}</ul>
+        <div class="project-links">${links}</div>
       </div>
     </article>
   `;
 }
 
-function renderProjects(filter = "all") {
-  const filteredProjects =
-    filter === "all"
-      ? projects
-      : projects.filter((project) => project.category.includes(filter));
-
-  projectGrid.innerHTML = filteredProjects.map(makeProjectCard).join("");
-}
-
-filterButtons.forEach((button) => {
-  button.addEventListener("click", () => {
-    filterButtons.forEach((item) => item.classList.remove("active"));
-    button.classList.add("active");
-    renderProjects(button.dataset.filter);
-  });
-});
-
-renderProjects();
+researchGrid.innerHTML = researchProjects.map(createProjectCard).join("");
+document.querySelector("#year").textContent = new Date().getFullYear();
