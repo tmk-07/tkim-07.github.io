@@ -1,0 +1,8 @@
+{
+  "name": "timothy-kim-portfolio",
+  "private": true,
+  "scripts": {
+    "dev": "python3 -m http.server 4173",
+    "cms": "npx --yes decap-server"
+  }
+}

@@ -1,0 +1,112 @@
+backend:
+  name: github
+  repo: tmk-07/tkim-07.github.io
+  branch: main
+
+local_backend: true
+
+media_folder: assets/uploads
+public_folder: /assets/uploads
+
+collections:
+  - name: portfolio
+    label: Portfolio
+    files:
+      - name: site
+        label: Site Content
+        file: content/site.json
+        format: json
+        fields:
+          - { label: Site name, name: siteName, widget: string }
+          - { label: Logo initials, name: initials, widget: string }
+          - { label: Browser title, name: pageTitle, widget: string }
+          - { label: Search description, name: metaDescription, widget: text }
+          - { label: Intro, name: intro, widget: string }
+          - { label: About summary, name: summary, widget: text }
+          - { label: Primary button, name: primaryCta, widget: string }
+          - label: Section labels
+            name: labels
+            widget: object
+            fields:
+              - { label: Projects, name: projects, widget: string }
+              - { label: More projects, name: moreProjects, widget: string }
+              - { label: Experience, name: experience, widget: string }
+              - { label: Skills, name: skills, widget: string }
+              - { label: Contact, name: contact, widget: string }
+          - label: Featured project
+            name: featured
+            widget: object
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Description, name: description, widget: text }
+              - { label: Preview image or GIF, name: preview, widget: image }
+              - { label: Preview alt text, name: previewAlt, widget: string }
+              - label: Feature points
+                name: points
+                widget: list
+                field: { label: Point, name: point, widget: string }
+              - { label: Site URL, name: siteUrl, widget: string, required: false }
+              - { label: Site button label, name: siteLabel, widget: string }
+              - { label: Details button label, name: detailsLabel, widget: string }
+              - { label: Popup link URL, name: projectLinkUrl, widget: string, required: false, hint: "Optional link shown beside the project description in the details popup." }
+              - { label: Popup link button label, name: projectLinkLabel, widget: string, required: false }
+              - { label: Feature decisions, name: featureDecisions, widget: text, required: false, hint: "Explain the product and feature decisions behind this project." }
+              - { label: Code details, name: codeDetails, widget: text, required: false, hint: "Explain the architecture, implementation, and technical tradeoffs." }
+          - label: Other projects
+            name: projects
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Category, name: type, widget: string }
+              - { label: Description, name: description, widget: text }
+              - { label: Preview image or GIF, name: preview, widget: image, required: false }
+              - { label: Preview alt text, name: previewAlt, widget: string }
+              - label: Placeholder visual
+                name: visual
+                widget: select
+                options:
+                  - { label: Forecast chart, value: visual-chart }
+                  - { label: Strategy board, value: visual-board }
+                  - { label: Field heatmap, value: visual-field }
+              - { label: Visual caption, name: visualLabel, widget: string }
+              - { label: Details button label, name: detailsLabel, widget: string }
+              - { label: Popup link URL, name: projectLinkUrl, widget: string, required: false }
+              - { label: Popup link button label, name: projectLinkLabel, widget: string, required: false }
+              - { label: Feature decisions, name: featureDecisions, widget: text, required: false }
+              - { label: Code details, name: codeDetails, widget: text, required: false }
+          - label: Experience
+            name: experience
+            widget: list
+            summary: "{{fields.organization}} — {{fields.role}}"
+            fields:
+              - label: Section
+                name: section
+                widget: select
+                options:
+                  - { label: Experience, value: experience }
+                  - { label: Education, value: education }
+                default: experience
+              - { label: Date, name: date, widget: string }
+              - { label: Organization, name: organization, widget: string }
+              - { label: Role, name: role, widget: string }
+              - { label: Description, name: description, widget: text }
+              - { label: Tag, name: tag, widget: string }
+              - { label: Highlight, name: highlight, widget: boolean, default: false }
+          - label: Skills
+            name: skills
+            widget: list
+            summary: "{{fields.category}}"
+            fields:
+              - { label: Category, name: category, widget: string }
+              - { label: Skills, name: items, widget: text }
+          - label: Contact links
+            name: contactLinks
+            widget: list
+            summary: "{{fields.label}} — {{fields.title}}"
+            fields:
+              - { label: Small label, name: label, widget: string }
+              - { label: Link title, name: title, widget: string }
+              - { label: Upload file, name: file, widget: file, required: false, choose_url: false }
+              - { label: URL, name: url, widget: string, required: false }
+          - { label: Footer name, name: footerName, widget: string }
