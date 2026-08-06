@@ -3,6 +3,10 @@
   "private": true,
   "scripts": {
     "dev": "python3 -m http.server 4173",
-    "cms": "npx --yes decap-server"
+    "cms": "npx --yes decap-server",
+    "oauth:deploy": "npx --yes wrangler@4.59.1 deploy --config oauth-worker/wrangler.toml",
+    "oauth:dev": "npx --yes wrangler@4.59.1 dev --config oauth-worker/wrangler.toml",
+    "oauth:secret:id": "npx --yes wrangler@4.59.1 secret put GITHUB_OAUTH_ID --config oauth-worker/wrangler.toml",
+    "oauth:secret:key": "npx --yes wrangler@4.59.1 secret put GITHUB_OAUTH_SECRET --config oauth-worker/wrangler.toml"
   }
 }

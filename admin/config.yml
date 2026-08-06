@@ -2,6 +2,9 @@ backend:
   name: github
   repo: tmk-07/tkim-07.github.io
   branch: main
+  base_url: https://timothy-portfolio-cms-auth.tmkm.workers.dev
+  auth_endpoint: /auth
+  site_domain: timothykim.tkimify.com
 
 local_backend: true
 

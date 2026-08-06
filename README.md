@@ -26,6 +26,6 @@ Open <http://localhost:4173/admin/>. Changes saved through the local editor are 
 
 ## Production editor
 
-The public static site can be deployed now without additional configuration. Production editing at `/admin/` requires a GitHub OAuth provider. The repository and branch are already configured in `admin/config.yml`; add the OAuth provider details once the final hosting platform is confirmed.
+The production editor uses the GitHub backend through the Cloudflare Worker in `oauth-worker/`. GitHub OAuth credentials are stored as encrypted Worker secrets and must never be committed to this repository. See `oauth-worker/README.md` for deployment commands.
 
-The `/admin/` path is not a security boundary by itself. Only authenticated users with repository access should be allowed to publish changes.
+The `/admin/` path is not a security boundary by itself. Only authenticated GitHub users with repository access can publish changes.
