@@ -48,7 +48,7 @@
   "intro": "Hi, I’m Tim!",
   "featured": {
     "projectLinkLabel": "Visit site",
-    "previewAlt": "Starting Five NBA roster drafting game in action",
+    "previewAlt": "Starting Five NBA roster drafting game in action.",
     "featureDecisions": "Starting Five originated from basketball content creators on Instagram who would play a similar draft-battle game in real life. I loved the concept, so I developed it into an online game.\n\nBot Development - \nI wanted to develop an experience that could be played alone, so I decided to create bots for a single-player mode. What made the game fun and unique when watching it being played on Instagram was the biases that came with each participant's opinions - no two games turned out the same way. To mimic this variability, I decided to create multiple bots, each with a slightly different strategy. One might play conservatively, saving their budget till later in the game, while others may break the bank for star players.\n\nDraft Pool - \nSimilar to player strategy, the player draft pool was a variable that contributed to the excitement of the game. Saving up for a superstar won't work out if there ends up not being one in the draft. Likewise, over spending for a star player may not be the move if there are three more elite players to be drafted. At the start of each game, a draft 'archetype' is randomly selected. It may be loaded with talent, be well-balanced, or top-heavy.\n\nGame Results - \nI think an important part of any game is to have a nicely laid out 'results' screen. It allows for quick comparison and fun stat-tracking. For Starting Five, the results screen includes a side-by-side comparison of either roster, as well as strength comparison of each team in five major categories. \n\nExperimental Modes - \nAt a certain point, the game inevitably ended up getting repetitive. I decided to add a couple twists. When creating a room to play with a friend, you'll see an 'advanced' option. Here, you'll have the ability to play with up to 10 friends, edit starting budgets, and play with a completely different set of NBA players.\n\nPlayer Disconnection - \nI didn't want games to just end if one side disconnects, so I added an 'Add bot' option that appears anytime there's an open space in a game room. This allows for the continuation of the game if your friend rage-quits halfway through a draft, but also allows for some fun set-ups - like maybe creating a 10-player room and teaming up with 5 friends against 5 bots.",
     "points": [
       "Durable Object providing stable game state across devices",
@@ -56,7 +56,7 @@
       "Formulaic team ratings to add a competitive edge"
     ],
     "siteUrl": "https://startingfive.tkimify.com",
-    "preview": "/assets/uploads/adobe-express-startingfivegif.gif",
+    "preview": "/assets/uploads/startingfive.gif",
     "detailsUrl": "",
     "siteLabel": "Visit site",
     "detailsLabel": "Details",
