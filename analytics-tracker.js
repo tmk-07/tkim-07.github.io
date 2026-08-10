@@ -43,13 +43,18 @@
     }).catch(() => {});
   }
 
+  function projectName(element) {
+    const card = element.closest("[data-project-card]");
+    return clean(card?.querySelector("h2, h3")?.textContent || "Unknown project");
+  }
+
   function clickDetails(element) {
     const projectDetails = element.closest("[data-project-details]");
-    if (projectDetails) return ["project_open", `details:${projectDetails.dataset.projectDetails}`];
+    if (projectDetails) return ["project_open", projectName(projectDetails)];
 
     const projectCard = element.closest("[data-project-card]");
     if (projectCard && !element.closest("a, button")) {
-      return ["project_open", `card:${projectCard.dataset.projectCard}`];
+      return ["project_open", projectName(projectCard)];
     }
 
     const detailTab = element.closest("[data-detail-tab]");
