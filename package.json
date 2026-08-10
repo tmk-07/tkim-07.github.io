@@ -7,6 +7,11 @@
     "oauth:deploy": "npx --yes wrangler@4.59.1 deploy --config oauth-worker/wrangler.toml",
     "oauth:dev": "npx --yes wrangler@4.59.1 dev --config oauth-worker/wrangler.toml",
     "oauth:secret:id": "npx --yes wrangler@4.59.1 secret put GITHUB_OAUTH_ID --config oauth-worker/wrangler.toml",
-    "oauth:secret:key": "npx --yes wrangler@4.59.1 secret put GITHUB_OAUTH_SECRET --config oauth-worker/wrangler.toml"
+    "oauth:secret:key": "npx --yes wrangler@4.59.1 secret put GITHUB_OAUTH_SECRET --config oauth-worker/wrangler.toml",
+    "analytics:db:create": "npx --yes wrangler@4.59.1 d1 create portfolio-analytics --config oauth-worker/wrangler.toml",
+    "analytics:db:migrate:local": "npx --yes wrangler@4.59.1 d1 execute portfolio-analytics --local --file oauth-worker/schema.sql --config oauth-worker/wrangler.toml",
+    "analytics:db:migrate": "npx --yes wrangler@4.59.1 d1 execute portfolio-analytics --remote --file oauth-worker/schema.sql --config oauth-worker/wrangler.toml",
+    "analytics:secret:pin": "npx --yes wrangler@4.59.1 secret put ANALYTICS_PIN --config oauth-worker/wrangler.toml",
+    "analytics:secret:session": "npx --yes wrangler@4.59.1 secret put ANALYTICS_SESSION_SECRET --config oauth-worker/wrangler.toml"
   }
 }

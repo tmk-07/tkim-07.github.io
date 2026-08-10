@@ -5,7 +5,15 @@ main = "src/index.js"
 compatibility_date = "2026-08-06"
 workers_dev = true
 
+[triggers]
+crons = ["17 3 * * *"]
+
 [vars]
 ALLOWED_ORIGIN = "https://timothykim.tkimify.com"
 ALLOWED_SITE_DOMAIN = "timothykim.tkimify.com"
 GITHUB_REPO_PRIVATE = "0"
+
+[[d1_databases]]
+binding = "ANALYTICS_DB"
+database_name = "portfolio-analytics"
+database_id = "1d8b4121-33c6-48bc-bd82-fe5f575421e9"

@@ -1,2 +1,4 @@
 GITHUB_OAUTH_ID="your-github-oauth-client-id"
 GITHUB_OAUTH_SECRET="your-github-oauth-client-secret"
+ANALYTICS_PIN="your-four-digit-pin"
+ANALYTICS_SESSION_SECRET="generate-a-long-random-secret"

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <title>Portfolio Analytics</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="analytics-shell">
+    <section class="login-card" id="loginView">
+      <a class="back-link" href="/">← Portfolio</a>
+      <p class="eyebrow">Private dashboard</p>
+      <h1>Analytics</h1>
+      <p class="login-copy">Enter your four-digit PIN to view portfolio activity.</p>
+      <form id="loginForm">
+        <label for="pin">PIN</label>
+        <input id="pin" name="pin" type="password" inputmode="numeric" pattern="[0-9]{4}" maxlength="4" autocomplete="off" required autofocus>
+        <button type="submit">Open dashboard <span>→</span></button>
+      </form>
+      <p class="form-status" id="loginStatus" role="status"></p>
+    </section>
+
+    <section class="dashboard" id="dashboardView" hidden>
+      <header class="dashboard-header">
+        <div>
+          <a class="back-link" href="/">← Portfolio</a>
+          <p class="eyebrow">Private dashboard</p>
+          <h1>Analytics</h1>
+        </div>
+        <div class="header-actions">
+          <label for="period">Range</label>
+          <select id="period">
+            <option value="7">7 days</option>
+            <option value="30" selected>30 days</option>
+            <option value="90">90 days</option>
+          </select>
+          <button class="quiet-button" id="refreshButton" type="button">Refresh</button>
+          <button class="quiet-button" id="logoutButton" type="button">Log out</button>
+        </div>
+      </header>
+
+      <p class="dashboard-status" id="dashboardStatus" role="status"></p>
+
+      <div class="metric-grid" id="metricGrid"></div>
+
+      <div class="dashboard-grid">
+        <section class="panel activity-panel">
+          <div class="panel-heading">
+            <div><p class="eyebrow">Traffic</p><h2>Daily sessions</h2></div>
+          </div>
+          <div class="daily-chart" id="dailyChart"></div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-heading"><div><p class="eyebrow">Actions</p><h2>Top clicks</h2></div></div>
+          <div class="ranking-list" id="topClicks"></div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-heading"><div><p class="eyebrow">Acquisition</p><h2>Referrers</h2></div></div>
+          <div class="ranking-list" id="referrers"></div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-heading"><div><p class="eyebrow">Audience</p><h2>Devices</h2></div></div>
+          <div class="ranking-list" id="devices"></div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-heading"><div><p class="eyebrow">Audience</p><h2>Locations</h2></div></div>
+          <div class="ranking-list" id="locations"></div>
+        </section>
+      </div>
+
+      <section class="panel sessions-panel">
+        <div class="panel-heading">
+          <div><p class="eyebrow">Visitor journeys</p><h2>Anonymous sessions</h2></div>
+          <span id="sessionCount"></span>
+        </div>
+        <div class="session-list" id="sessionList"></div>
+      </section>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
