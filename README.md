@@ -1,31 +1,62 @@
-# Timothy Kim Portfolio
+# Timothy Kim — Portfolio
 
-A static portfolio with content managed through Decap CMS.
+A personal portfolio showcasing my software engineering, data science, and machine learning projects.
 
-## Edit content directly
+**Live site:** [timothykim.tkimify.com](https://timothykim.tkimify.com)
 
-All public site content lives in `content/site.json`. Uploaded images and GIFs live in `assets/uploads/`.
+## Overview
 
-## Run the public site locally
+I built this portfolio to present my projects as interactive products rather than a collection of repository links. Each project includes a visual preview, a concise overview, and separate write-ups covering product decisions and technical implementation.
 
-```bash
-npm run dev
-```
+The site also includes a custom content-management system through Decap CMS, allowing me to easily make changes to the contents of the site.
 
-Open <http://localhost:4173/>.
+## Features
 
-## Run the local CMS editor
+- Responsive project portfolio
+- Animated project cards and detail modals
+- Expandable experience and education entries
+- Image, GIF, and PDF uploads through Decap CMS
+- GitHub-based CMS authentication
+- Anonymous session and click analytics
 
-Keep the public site running, then open a second terminal in this repository and run:
+## Technical Architecture
 
-```bash
-npm run cms
-```
+The public portfolio is a lightweight static site built with HTML, CSS, and vanilla JavaScript.
 
-Open <http://localhost:4173/admin/>. Changes saved through the local editor are written to `content/site.json` and `assets/uploads/`. They remain local until committed and pushed.
+Portfolio content is stored in JSON and managed through Decap CMS. Published CMS changes are committed directly to GitHub, allowing the site to remain static while still providing a convenient editing interface.
 
-## Production editor
+A Cloudflare Worker handles:
 
-The production editor uses the GitHub backend through the Cloudflare Worker in `oauth-worker/`. GitHub OAuth credentials are stored as encrypted Worker secrets and must never be committed to this repository. See `oauth-worker/README.md` for deployment commands.
+- GitHub OAuth for the CMS
+- Analytics event collection
+- Dashboard authentication
+- Signed dashboard sessions
+- Analytics queries
 
-The `/admin/` path is not a security boundary by itself. Only authenticated GitHub users with repository access can publish changes.
+Anonymous analytics events are stored in Cloudflare D1.
+
+## Technology
+
+- HTML5
+- CSS3
+- JavaScript
+- Decap CMS
+- GitHub
+- Cloudflare Workers
+- Cloudflare D1
+- GitHub OAuth
+- Cloudflare Web Analytics
+
+## Project Structure
+
+```text
+.
+├── analytics/              # Private analytics dashboard
+├── assets/uploads/         # Project media and resume
+├── admin/                  # Decap CMS configuration
+├── content/site.json       # Portfolio content
+├── oauth-worker/           # OAuth and analytics Worker
+├── analytics-tracker.js    # Anonymous event tracking
+├── index.html              # Portfolio markup
+├── script.js               # Portfolio interactions
+└── style.css               # Main visual system
